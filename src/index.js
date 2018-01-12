@@ -285,13 +285,6 @@ class ParallaxScrollView extends Component {
 						styles.parallaxHeader,
 						{
 							height: parallaxHeaderHeight,
-							opacity: fadeOutForeground
-								? interpolate(scrollY, {
-										inputRange: [0, p * (1 / 2), p * (3 / 4), p],
-										outputRange: [1, 0.3, 0.1, 0],
-										extrapolate: 'clamp'
-									})
-								: 1
 						}
 					]}
 				>
@@ -371,7 +364,7 @@ class ParallaxScrollView extends Component {
 									backgroundColor: backgroundColor,
 									height: stickyHeaderHeight,
 									opacity: interpolate(scrollY, {
-										inputRange: [0, p],
+										inputRange: [p-1, p],
 										outputRange: [0, 1],
 										extrapolate: 'clamp'
 									})
@@ -382,7 +375,7 @@ class ParallaxScrollView extends Component {
 										transform: [
 											{
 												translateY: interpolate(scrollY, {
-													inputRange: [0, p],
+													inputRange: [p-1, p],
 													outputRange: [stickyHeaderHeight, 0],
 													extrapolate: 'clamp'
 												})
